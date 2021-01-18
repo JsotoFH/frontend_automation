@@ -11,7 +11,7 @@ const helpPageObj = new helpPageObject()
 describe('Help Page Suite',() => {
 
     beforeEach(function () {
-        cy.fixture('formTestData').then((formTD) => {this.formTD = formTD})
+        cy.fixture('medicare/formTestData').then((formTD) => {this.formTD = formTD})
           censusPageObj.getPage()
           censusPageObj.setZipCodeTextField('42223')
           censusPageObj.clickSeeMedicarePlansButton()
