@@ -1,0 +1,21 @@
+export default class enrollmentStepOne_pageObject{
+
+    firstNameTxt= ''
+    initialTxt = ''
+    lastNameTxt = ''
+    dateOfBithTxt = ''
+    genderRadioBtn = ''
+    titleRadioBtn = ''
+    phoneTxt = ''
+    emailAddressTxt = ''
+    residencialAddressTxt = ''
+    appUnitSuiteTxt = ''
+    cityTxt = ''
+    zipCodeTxt = ''
+    countyTxt = ''
+    stateTxt = ''
+    mailingAddressRdb = ''
+    summaryOfBenefitsLnk = ''
+    discardBtn = ''
+    continueBtn = ''
+}

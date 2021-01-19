@@ -1,33 +1,33 @@
 /// <reference types="Cypress" />
 
-import censusPageObject from '../../pageObjects/medicare/censusPageObject'
-import quotePageObject from '../../pageObjects/medicare/quotePageObject'
-import helpPageObject from '../../pageObjects/medicare/helpPageObject'
+import census_pageObject from '../../pageObjects/medicare/census_pageObject'
+import quote_pageObject from '../../pageObjects/medicare/quote_pageObject'
+import help_pageObject from '../../pageObjects/medicare/help_pageObject'
 
-const censusPageObj = new censusPageObject()
-const quotePageObj = new quotePageObject()
-const helpPageObj = new helpPageObject()
+const census = new census_pageObject()
+const quote = new quote_pageObject()
+const help = new help_pageObject()
 
 describe('Help Page Suite',() => {
 
     beforeEach(function () {
-        cy.fixture('medicare/formTestData').then((formTD) => {this.formTD = formTD})
-          censusPageObj.getPage()
-          censusPageObj.setZipCodeTextField('42223')
-          censusPageObj.clickSeeMedicarePlansButton()
+        cy.fixture('medicare/helpForm_testData').then((formTD) => {this.formTD = formTD})
+          census.getPage()
+          census.setZipCodeTxt('42223')
+          //censusPageObj.clickSeeMedicarePlansButton()
       })
 
     it('Validate request a call form', function () {
-        quotePageObj.clickHelpButton()
-        helpPageObj.getNeedHelpSubtitleLabel().should('have.text','Need Help?')
-        helpPageObj.getRequestACallSubtitleLabel().should('have.text','Request a Call')
-        //helpPageObj.getFirstNameTextField().click({force: true}).type(this.formTD.firstName)
-        helpPageObj.setFirstNameTextField(this.formTD.firstName)
-        helpPageObj.setLastNameTextField(this.formTD.lastName)
-        helpPageObj.setEmailTextField(this.formTD.email)
-        helpPageObj.setPhoneNumberTextField(this.formTD.phoneNumber)
-        helpPageObj.clickRequestACallButton()
-        helpPageObj.getThankYouSubtitleLabel().should('have.text','Thank you!')
+        quote.clickHelpBtn()
+        help.getNeedHelpSubtitleLbl().should('have.text','Need Help?')
+        help.getRequestACallSubtitleLbl().should('have.text','Request a Call')
+        //help.getFirstNameTextField().click({force: true}).type(this.formTD.firstName)
+        help.setFirstNameTxt(this.formTD.firstName)
+        help.setLastNameTxt(this.formTD.lastName)
+        help.setEmailTxt(this.formTD.email)
+        help.setPhoneNumberTxt(this.formTD.phoneNumber)
+        help.clickRequestACallBtn()
+        help.getThankYouSubtitleLbl().should('have.text','Thank you!')
     })
 
 })

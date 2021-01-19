@@ -1,29 +1,29 @@
-import censusPageObject from '../../pageObjects/medicare/censusPageObject'
-import quotePageObject from '../../pageObjects/medicare/quotePageObject'
+import census_pageObject from '../../pageObjects/medicare/census_pageObject'
+import quote_pageObject from '../../pageObjects/medicare/quote_pageObject'
 
-const censusPageObj = new censusPageObject()
-const quotePageObj = new quotePageObject()
+const census = new census_pageObject()
+const quote = new quote_pageObject()
 
 
 describe('Census Page Suite', () => {  
     beforeEach(() =>{
-        censusPageObj.getPage()
+        census.getPage()
     })
 
     it('Validate that Census page is loaded', () => {
-        censusPageObj.getPageTitle().should('eq','Find and Compare Medicare Plans | medicare.healthinsurance.com')
-        censusPageObj.getPageUrl().should('contains', 'https://staging.medicare.healthinsurance.com')
+        census.getPageTitleLbl().should('eq','Find and Compare Medicare Plans | medicare.healthinsurance.com')
+        census.getPageUrl().should('contains', 'https://staging.medicare.healthinsurance.com')
     })
 
     it('Validate text in the hero', () => {
-        censusPageObj.getTextInHeroTitle().should('have.text', 'Find and Compare Medicare Plans')
-        censusPageObj.getTextInHeroBody().should('have.text', "We spend the time and effort to know the ins and outs of Medicare, so you don't have to.")
+        census.getHeroTitleLbl().should('have.text', 'Find and Compare Medicare Plans')
+        census.getHeroBodyLbl().should('have.text', "We spend the time and effort to know the ins and outs of Medicare, so you don't have to.")
     })
 
     it('Validate we are in quote page after entering and zip code and clicking on See Medicare Plans button', () => {
         //censusPageObj.setZipCodeTextField('35215')
-        censusPageObj.setZipCodeTextField('42223')
-        censusPageObj.clickSeeMedicarePlansButton()
-        quotePageObj.getTextInTheTop().should('have.text', '21\u00a0Medicare Advantage Plans')//quote page
+        census.setZipCodeTxt('42223')
+        census.clickSeeMedicarePlansBtn()
+        quote.getTopLbl().contains('Medicare Advantage Plans')
     })
 })
