@@ -1,9 +1,9 @@
 # frontend automation.
 frontend automation framework develop using Cypress (JavaScript). Here you can find all the information about the framework.
-https://docs.cypress.io/guides/overview/why-cypress.html#In-a-nutshell
+[cypress.io](https://docs.cypress.io/guides/overview/why-cypress.html#In-a-nutshell)
 
 ## Requirements.
-- This framework will run om Windows, Mac or Linux... just take into account that the server to host and run the test script must have installed the target browsers:
+- This framework will run on Windows, Mac or Linux... just take into account that the server to host and run the test script must have installed the target browsers:
     * Chrome
     * Firefox
     * Edge
@@ -13,7 +13,7 @@ https://docs.cypress.io/guides/overview/why-cypress.html#In-a-nutshell
 
 
 - Git... Here you can find the instructions to install it.
-[https://git-scm.com] (https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+[https://git-scm.com](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
 ## Running the specs.
 Clone the repository.
@@ -28,7 +28,7 @@ now, just execute the command to run the test scripts -It will not save test res
 $npm run cyHeaded
 ```
 
-If you want to save the test results, then execute the following command, and then visit [Cypress Dashboard] (https://dashboard.cypress.io/).
+If you want to save the test results, then execute the following command, and then visit [Cypress Dashboard](https://dashboard.cypress.io/).
 
 ```sh
 $npm run cyDashboard
