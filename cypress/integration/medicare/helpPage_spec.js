@@ -12,9 +12,8 @@ describe('Help Page Suite',() => {
 
     beforeEach(function () {
         cy.fixture('medicare/helpForm_testData').then((formTD) => {this.formTD = formTD})
-          census.getPage()
-          census.setZipCodeTxt('42223')
-          //censusPageObj.clickSeeMedicarePlansButton()
+        //cy.getQuotePage('35215')
+        cy.getQuotePage('42223')
       })
 
     it('Validate request a call form', function () {

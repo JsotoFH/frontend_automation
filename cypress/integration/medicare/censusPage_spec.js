@@ -21,8 +21,8 @@ describe('Census Page Suite', () => {
     })
 
     it('Validate we are in quote page after entering and zip code and clicking on See Medicare Plans button', () => {
-        //censusPageObj.setZipCodeTextField('35215')
-        census.setZipCodeTxt('42223')
+        census.setZipCodeTxt('35215')
+        //census.setZipCodeTxt('42223')
         census.clickSeeMedicarePlansBtn()
         quote.getTopLbl().contains('Medicare Advantage Plans')
     })

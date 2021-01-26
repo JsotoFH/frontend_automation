@@ -11,6 +11,18 @@
 //
 // -- This is a parent command --
 // Cypress.Commands.add("login", (email, password) => { ... })
+
+
+import census_pageObject from '../pageObjects/medicare/census_pageObject'
+const census = new census_pageObject()
+
+Cypress.Commands.add("getQuotePage", (zipCode) => {
+    census.getPage()
+    census.setZipCodeTxt(zipCode)
+    census.clickSeeMedicarePlansBtn()
+})
+
+
 //
 //
 // -- This is a child command --

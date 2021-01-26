@@ -15,9 +15,8 @@ const help = new help_pageObject()
 describe('Quote Page Suite',() => {
 
     beforeEach(() =>{
-        census.getPage()
-        census.setZipCodeTxt('42223')
-        //census.clickSeeMedicarePlansButton()
+        //cy.getQuotePage('35215')
+        cy.getQuotePage('42223')
     })
 
     it('Validate that Quote page is loaded',() => {
