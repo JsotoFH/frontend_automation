@@ -1,7 +1,6 @@
 {
     "env":{
-        "staging" : "https://staging.medicare.healthinsurance.com",
-        "production" : "https://medicare.healthinsurance.com"
+        "url" : "https://staging.medicare.healthinsurance.com"
     },
     "defaultCommandTimeout":20000,
     "projectId": "h5ap2t"

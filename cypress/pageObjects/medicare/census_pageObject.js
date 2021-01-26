@@ -4,11 +4,11 @@ export default class census_pageObject{
     heroTitleLbl = '.tz6gdb-0'
     heroBodyLbl = '.tz6gdb-1'
     zipCodeTxt = '.bz5mrc-16.jSFXAi'
-    seeMedicarePlansBtn = '.sc-1fn8n0v-0'
+    seeMedicarePlansBtn = 'button.sc-1fn8n0v-0'
 
     //This method loads the initial Census page.
     getPage(){
-        cy.visit(Cypress.env('staging'))
+        cy.visit(Cypress.env('url'))
     }
 
     //This method gets the Census page title.
@@ -34,15 +34,16 @@ export default class census_pageObject{
     //This method types a zip code in the text-field.
         //If there were multiple counties then it clicks on the first one.
     setZipCodeTxt(zipCode){
-        cy.get(this.zipCodeTxt).click().clear().type(zipCode + '{enter}')
-        if(cy.get('.modal-content')){
-            cy.get('.sc-10jgnyy-4.blqeox').eq(0).click()
-        }
+        cy.get(this.zipCodeTxt).click().clear().type(zipCode + '{enter}').wait(3000)
+        cy.get('body').then((body)=>{
+            if(body.find('.modal-content').length){
+                cy.get('.sc-10jgnyy-4.blqeox').eq(0).click()
+            }
+        })
     }
 
     //This method clicks on the submit button.
     clickSeeMedicarePlansBtn(){
         cy.get(this.seeMedicarePlansBtn).click()
-
     }
 }
