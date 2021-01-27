@@ -34,31 +34,18 @@ export default class filterPlans_pageObject{
 
     //This method clicks on To replace a current Medicare Advantage plan
     clickCoverageOptionsRdb(option){
-        //cy.get(this.coverageOptionsRdb).eq(option).click()
-        cy.get(this.coverageOptionsRdb).each((elem, i, list)=>{
-            if(elem.text().includes(option)){
-                cy.get(this.coverageOptionsRdb).eq(i).click()
-            }
-        })
+        cy.clickElementInArray(this.coverageOptionsRdb, option)
     }
 
     //This method clicks and set the Start Typing dropdownfor insurance company
     setStartTypingBtn(company){
         cy.get(this.startTypingBtn).click().type(company).wait(1000)
-        cy.get(this.optionsBtn).each((elem, i, list)=>{
-            if(elem.text().includes(company)){
-                cy.get(this.optionsBtn).eq(i).click()
-            }
-        })
+        cy.clickElementInArray(this.optionsBtn, company)
     }
 
     //This method clicks on the specified Current Plan 
     clickCurrentPlan(currentPlan){
-        cy.get(this.currentPlan).each((elem, i, list)=>{
-            if(elem.text().includes(currentPlan)){
-                cy.get(this.currentPlan).eq(i).click()
-            }
-        })
+        cy.clickElementInArray(this.currentPlan, currentPlan)
     }
 
     //This method clicks on the I'm finished button
