@@ -6,5 +6,6 @@
 
     "viewportHeight":660,
     "viewportWidth":1100,
-    "projectId": "h5ap2t"
+    "projectId": "h5ap2t",
+    "video":false
 }
