@@ -3,5 +3,8 @@
         "url" : "https://staging.medicare.healthinsurance.com"
     },
     "defaultCommandTimeout":20000,
+
+    "viewportHeight":800,
+    "viewportWidth":1280,
     "projectId": "h5ap2t"
 }
