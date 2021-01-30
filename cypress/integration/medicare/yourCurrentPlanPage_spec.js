@@ -17,13 +17,13 @@ describe('Your Current Plan Page Suite',() => {
 
     it('Validate Replace Your Current Medicare Advantage Plan', () => {
         quote.clickYourCurrentPlanBtn()
-        currentPlan.getSubtitleYourCurrentPlanSectionLbl().should('have.text', 'Compare your overall likely costs, not just premiums ')
+        globalInfoBar.getSubtitleLbl().should('have.text', 'Compare your overall likely costs, not just premiums ')
         globalInfoBar.clickAddBtn()
-        currentPlan.getYourCurrentPlanQuestionLbl().should('have.text', 'What kind of coverage are you looking for?')
+        globalInfoBar.getQuestionLbl().should('have.text', 'What kind of coverage are you looking for?')
         currentPlan.clickCoverageOptionsRdb('To replace a current Medicare Advantage plan')
         currentPlan.setStartTypingBtn('Aetna Inc.')
         currentPlan.clickCurrentPlan('Aetna Medicare Freedom Plan (PPO)')
         globalInfoBar.clickImFinishedBtn()
-        healthcareVisits.getHealthcareVisitsSubtitleLbl().should('have.text', 'Healthcare Visits')
+        globalInfoBar.getSubtitleLbl().should('have.text', 'Healthcare Visits')
     })
 })

@@ -43,9 +43,9 @@ describe('Quote Page Suite',() => {
     
     it('Validate Your Current Plan', () => {
         quote.clickYourCurrentPlanBtn()
-        yourCurrentPlan.getSubtitleYourCurrentPlanSectionLbl().should('have.text', 'Compare your overall likely costs, not just premiums ')
+        globalInfoBar.getSubtitleLbl().should('have.text', 'Compare your overall likely costs, not just premiums ')
         globalInfoBar.clickAddBtn()
-        yourCurrentPlan.getYourCurrentPlanQuestionLbl().should('have.text', 'What kind of coverage are you looking for?')
+        globalInfoBar.getQuestionLbl().should('have.text', 'What kind of coverage are you looking for?')
         quote.clickViewAvailablePlansLnk()
         quote.getTopLbl().contains('Medicare Advantage Plans')
     })

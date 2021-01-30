@@ -7,6 +7,7 @@ export default class quote_pageObject{
     updateYourLocationBtn = '.sc-191voon-4.ctPuww'
     yourCurrentPlanBtn = '.sc-191voon-4.ctPuww'
     viewAvailablePlansLnk = '.sc-191voon-14.fpMnoP'
+    hidenArrowBtn ='.sc-191voon-17.sc-191voon-19.lieBHb'
     helpBtn = '.h4q93g-0.dcdiAT'
 
 
@@ -46,7 +47,13 @@ export default class quote_pageObject{
     }
 
     //This method clicks on view available plans link.
+        //if the element is overlapped then we click on the arrow.
     clickViewAvailablePlansLnk(){
+        cy.get('body').then((body)=>{
+            if(body.find(this.hidenArrowBtn).length){
+                cy.get(this.hidenArrowBtn).click().wait(500)
+            }
+        })
         cy.get(this.viewAvailablePlansLnk).click({force: true})
     }
 
