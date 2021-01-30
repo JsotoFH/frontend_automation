@@ -8,7 +8,7 @@ export default class census_pageObject{
 
     //This method loads the initial Census page.
     getPage(){
-        cy.visit(Cypress.env('url'))
+        cy.visit(Cypress.env('url'), {onBeforeLoad: (win) => {win.sessionStorage.clear()}})
     }
 
     //This method gets the Census page title.

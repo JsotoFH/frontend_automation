@@ -1,16 +1,16 @@
-import census_pageObject from '../../pageObjects/medicare/census_pageObject'
 import quote_pageObject from '../../pageObjects/medicare/quote_pageObject'
 import updateYourLocation_pageObject from '../../pageObjects/medicare/updateYourLocation_pageObject'
 import yourCurrentPlan_pageObject from '../../pageObjects/medicare/yourCurrentPlan_pageObject'
 import filterPlans_pageObject from '../../pageObjects/medicare/filterPlans_pageObject'
 import help_pageObject from '../../pageObjects/medicare/help_pageObject'
+import globalInfoBar_pageObject from '../../pageObjects/medicare/globalInfoBar_pageObject'
 
-const census = new census_pageObject()
 const quote = new quote_pageObject()
 const filterPlans = new filterPlans_pageObject()
 const updateYourLocation = new updateYourLocation_pageObject()
 const yourCurrentPlan = new yourCurrentPlan_pageObject()
 const help = new help_pageObject()
+const globalInfoBar = new globalInfoBar_pageObject()
 
 describe('Quote Page Suite',() => {
 
@@ -43,8 +43,8 @@ describe('Quote Page Suite',() => {
     
     it('Validate Your Current Plan', () => {
         quote.clickYourCurrentPlanBtn()
-        yourCurrentPlan.getSubtitleYourCurrentPlanSection().should('have.text', 'Compare your overall likely costs, not just premiums ')
-        yourCurrentPlan.clickAddYourCurrentPlanBtn()
+        yourCurrentPlan.getSubtitleYourCurrentPlanSectionLbl().should('have.text', 'Compare your overall likely costs, not just premiums ')
+        globalInfoBar.clickAddBtn()
         yourCurrentPlan.getYourCurrentPlanQuestionLbl().should('have.text', 'What kind of coverage are you looking for?')
         quote.clickViewAvailablePlansLnk()
         quote.getTopLbl().contains('Medicare Advantage Plans')

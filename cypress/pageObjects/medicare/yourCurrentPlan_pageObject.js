@@ -1,30 +1,20 @@
 /// <reference types="Cypress" />
 
-export default class filterPlans_pageObject{
+export default class yourCurrentPlan_pageObject{
     
     //Page one
     yourCurrentPlanSubitleLbl = '.sc-8s5i1h-2.cMmRKS'
-    backBtn = '.sc-17e7h73-4.iDFwod.col-md-5>button'
-    skipThisSectionBtn = '.ns2cyz-1.fHxFqS'
-    addYourCurrentPlanBtn = '.ns2cyz-1.jRFPLW'
-
+    
     //Page two
     yourCurrentPlanQuestionLbl = '.sc-98x115-1.oordz'
     coverageOptionsRdb = '.ns2cyz-1.bCrTra'
     startTypingBtn = 'input.rbt-input-main.form-control.rbt-input'
     optionsBtn = 'ul[aria-label="menu-options"]>li'
     currentPlan = 'div.col-md-12>.sc-3w2p6u-0.JYrBb.col'
-    imFinishedBtn = '.ns2cyz-1.jezcQH.selected'
-
 
     //This method gets the subtitle element.
-    getSubtitleYourCurrentPlanSection(){
+    getSubtitleYourCurrentPlanSectionLbl(){
         return cy.get(this.yourCurrentPlanSubitleLbl)
-    }
-
-    //This method clicks on add your current plan button.
-    clickAddYourCurrentPlanBtn(){
-        cy.get(this.addYourCurrentPlanBtn).click()
     }
 
     //This method gets the question text element.
@@ -46,10 +36,5 @@ export default class filterPlans_pageObject{
     //This method clicks on the specified Current Plan 
     clickCurrentPlan(currentPlan){
         cy.clickElementInArray(this.currentPlan, currentPlan)
-    }
-
-    //This method clicks on the I'm finished button
-    clickImFinishedBtn(){
-        cy.get(this.imFinishedBtn).click()
     }
 }
