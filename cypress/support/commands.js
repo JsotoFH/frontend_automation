@@ -17,11 +17,13 @@ import census_pageObject from '../pageObjects/medicare/census_pageObject'
 import quote_pageObject from '../pageObjects/medicare/quote_pageObject'
 import globalInfoBar_pageObject from '../pageObjects/medicare/globalInfoBar_pageObject'
 import yourCurrentPlan_pageObject from '../pageObjects/medicare/yourCurrentPlan_pageObject'
+import healthcareVisits_pageObject from '../pageObjects/medicare/healthcareVisits_pageObject'
 
 const census = new census_pageObject()
 const quote = new quote_pageObject()
 const globalInfoBar = new globalInfoBar_pageObject()
 const currentPlan = new yourCurrentPlan_pageObject()
+const healthcareVisits = new healthcareVisits_pageObject()
 
 //This commmand types a zipcode in Census Page and gets quotes
 Cypress.Commands.add("getQuotePage", (zipCode) => {
@@ -47,6 +49,19 @@ Cypress.Commands.add("getHealthcareVisitsPage", (zipCode) => {
     globalInfoBar.clickImFinishedBtn()
 })
 
+//This command gets to Your Current Plan page
+Cypress.Commands.add("getPrescriptionDrugsPage", (zipCode) => {
+    cy.getYourCurrentPlanPage(zipCode)
+    globalInfoBar.clickAddBtn()
+    currentPlan.clickCoverageOptionsRdb('To replace a current Medicare Advantage plan')
+    currentPlan.setStartTypingBtn('Aetna Inc.')
+    currentPlan.clickCurrentPlan('Aetna Medicare Freedom Plan (PPO)')
+    globalInfoBar.clickImFinishedBtn()
+    globalInfoBar.clickAddBtn()
+    healthcareVisits.clickVisitsOptionRdb('Average')
+    globalInfoBar.clickImFinishedBtn()
+})
+
 //This command finds and clicks on a specific element in an array
 Cypress.Commands.add("clickElementInArray", (array, element) => { 
     cy.get(array).each((elem, i, list)=>{
@@ -55,6 +70,16 @@ Cypress.Commands.add("clickElementInArray", (array, element) => {
         }
     })
 })
+
+Cypress.Commands.add("setElementsInArray", (array, element) => {
+    cy.get(array).first().type(element.slice(0,3))
+    //element = element.split(' ')
+    //element = element[0].split()
+    //cy.get(array).each((elem, i, list)=>{
+      //  cy.get(array).last().type(element[i])
+    // })   
+})
+  
 
 //
 //

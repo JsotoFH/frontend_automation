@@ -4,12 +4,12 @@ import healthcareVisits_pageObject from '../../pageObjects/medicare/healthcareVi
 const globalInfoBar = new globalInfoBar_pageObject()
 const healthcareVisits = new healthcareVisits_pageObject()
 
-describe('Your Current Plan Page Suite',() => {
+describe('Healthcare Visit Page Suite',() => {
     beforeEach(() =>{
         cy.getHealthcareVisitsPage('35215')
         //cy.getHealthcareVisitsPage('42223')
     })
-    it('Validate Replace Your Current Medicare Advantage Plan', () => {
+    it('Validate healthcare visit can be added', () => {
         globalInfoBar.getSubtitleLbl().should('have.text', 'Healthcare Visits')
         globalInfoBar.clickAddBtn()
         globalInfoBar.getQuestionLbl().should('have.text', 'How often do you see a doctor or receive medical care?')
