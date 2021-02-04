@@ -34,7 +34,7 @@ export default class census_pageObject{
     //This method types a zip code in the text-field.
         //If there were multiple counties then it clicks on the first one.
     setZipCodeTxt(zipCode){
-        cy.get(this.zipCodeTxt).click().clear().type(zipCode).wait(3000)
+        cy.get(this.zipCodeTxt).click().clear().type(zipCode).wait(2000)
         cy.get('body').then((body)=>{
             if(body.find('.modal-content').length){
                 cy.get('.sc-10jgnyy-4.blqeox').eq(0).click()
@@ -44,6 +44,6 @@ export default class census_pageObject{
 
     //This method clicks on the submit button.
     clickSeeMedicarePlansBtn(){
-        cy.get(this.seeMedicarePlansBtn).click().wait(3000)
+        cy.get(this.seeMedicarePlansBtn).click().wait(2000)
     }
 }

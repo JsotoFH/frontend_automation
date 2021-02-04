@@ -20,7 +20,6 @@ describe('Help Page Suite',() => {
         quote.clickHelpBtn()
         help.getNeedHelpSubtitleLbl().should('have.text','Need Help?')
         help.getRequestACallSubtitleLbl().should('have.text','Request a Call')
-        //help.getFirstNameTextField().click({force: true}).type(this.formTD.firstName)
         help.setFirstNameTxt(this.formTD.firstName)
         help.setLastNameTxt(this.formTD.lastName)
         help.setEmailTxt(this.formTD.email)

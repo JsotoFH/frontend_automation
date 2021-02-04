@@ -18,12 +18,14 @@ import quote_pageObject from '../pageObjects/medicare/quote_pageObject'
 import globalInfoBar_pageObject from '../pageObjects/medicare/globalInfoBar_pageObject'
 import yourCurrentPlan_pageObject from '../pageObjects/medicare/yourCurrentPlan_pageObject'
 import healthcareVisits_pageObject from '../pageObjects/medicare/healthcareVisits_pageObject'
+import prescriptionDrugs_pageObject from '../pageObjects/medicare/prescriptionDrugs_pageObject'
 
 const census = new census_pageObject()
 const quote = new quote_pageObject()
 const globalInfoBar = new globalInfoBar_pageObject()
 const currentPlan = new yourCurrentPlan_pageObject()
 const healthcareVisits = new healthcareVisits_pageObject()
+const prescriptionDrugs = new prescriptionDrugs_pageObject()
 
 //This commmand types a zipcode in Census Page and gets quotes
 Cypress.Commands.add("getQuotePage", (zipCode) => {
@@ -39,7 +41,7 @@ Cypress.Commands.add("getYourCurrentPlanPage", (zipCode) => {
     quote.clickYourCurrentPlanBtn()
 })
 
-//This command gets to Your Current Plan page
+//This command gets to Healthcare Visits page
 Cypress.Commands.add("getHealthcareVisitsPage", (zipCode) => {
     cy.getYourCurrentPlanPage(zipCode)
     globalInfoBar.clickAddBtn()
@@ -49,16 +51,25 @@ Cypress.Commands.add("getHealthcareVisitsPage", (zipCode) => {
     globalInfoBar.clickImFinishedBtn()
 })
 
-//This command gets to Your Current Plan page
+//This command gets to Prescription Drugs page
 Cypress.Commands.add("getPrescriptionDrugsPage", (zipCode) => {
-    cy.getYourCurrentPlanPage(zipCode)
-    globalInfoBar.clickAddBtn()
-    currentPlan.clickCoverageOptionsRdb('To replace a current Medicare Advantage plan')
-    currentPlan.setStartTypingBtn('Aetna Inc.')
-    currentPlan.clickCurrentPlan('Aetna Medicare Freedom Plan (PPO)')
-    globalInfoBar.clickImFinishedBtn()
+    cy.getHealthcareVisitsPage(zipCode)
     globalInfoBar.clickAddBtn()
     healthcareVisits.clickVisitsOptionRdb('Average')
+    globalInfoBar.clickImFinishedBtn()
+})
+
+//This command gets to Pharmacy page
+Cypress.Commands.add("getPharmacyPage", (zipCode) => {
+    cy.getPrescriptionDrugsPage(zipCode)
+    globalInfoBar.clickAddBtn()
+    prescriptionDrugs.setPrescriptionLettersTxt('Ala Scalp')
+    prescriptionDrugs.clickPrescriptionDrugsBtn('Ala Scalp')
+    prescriptionDrugs.setDoseTypeBtn('Lotion')
+    prescriptionDrugs.setDoseStrengthBtn('2%')
+    prescriptionDrugs.setPrescriptionPackagedBtn('29.6 ML Bottle')
+    prescriptionDrugs.setRefillFrequencyBtn('Every Month')
+    prescriptionDrugs.clickAddbutton()
     globalInfoBar.clickImFinishedBtn()
 })
 
