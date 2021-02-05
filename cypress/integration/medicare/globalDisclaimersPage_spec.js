@@ -59,7 +59,7 @@ describe('Global disclaimers Suite',() => {
         })    
     })
 
-    it.only('Validate disclaimers in Plan Details page', function(){
+    it('Validate disclaimers in Plan Details page', function(){
         this.disclaimerTD.forEach(carrier => {
             cy.log(carrier.carrier)
             var states = carrier.state

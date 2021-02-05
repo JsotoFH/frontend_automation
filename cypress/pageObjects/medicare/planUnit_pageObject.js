@@ -9,6 +9,6 @@ export default class planUnit_pageObject{
     }
 
     getSeePlanDetailsBtn(){
-        return cy.get(this.seePlanDetailsBtn).wait(1000)
+        return cy.get(this.seePlanDetailsBtn).wait(2000)
     }
 }

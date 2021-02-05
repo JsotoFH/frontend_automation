@@ -8,6 +8,6 @@ export default class planDetails_pageObject{
     }
 
     clickBackBtn(){
-        this.getBackBtn().click().wait(1000)
+        this.getBackBtn().click().wait(2000)
     }
 }

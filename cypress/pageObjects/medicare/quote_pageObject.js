@@ -51,7 +51,7 @@ export default class quote_pageObject{
     clickViewAvailablePlansLnk(){
         cy.get('body').then((body)=>{
             if(body.find(this.hidenArrowBtn).length){
-                cy.get(this.hidenArrowBtn).click().wait(500)
+                cy.get(this.hidenArrowBtn).click().wait(2000)
             }
         })
         cy.get(this.viewAvailablePlansLnk).click({force: true})

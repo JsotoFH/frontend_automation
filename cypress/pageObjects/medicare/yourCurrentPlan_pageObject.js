@@ -15,7 +15,7 @@ export default class yourCurrentPlan_pageObject{
 
     //This method clicks and set the Start Typing dropdownfor insurance company
     setStartTypingBtn(company){
-        cy.get(this.startTypingBtn).click().type(company).wait(1000)
+        cy.get(this.startTypingBtn).click().type(company).wait(2000)
         cy.clickElementInArray(this.optionsBtn, company)
     }
 
