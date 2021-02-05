@@ -13,8 +13,9 @@ export default class filterPlans_pageObject{
     }
 
     //This method clicks on Humana Inc company.
-    clickCompanyCkb(){
-        cy.get(this.companyNamesCkb).eq(2).click()
+    clickCompanyCkb(planName){
+        cy.clickElementInArray(this.companyNamesCkb, planName)
+        //cy.get(this.companyNamesCkb).eq(2).click()
     }
 
     //This method clicks on Apply Filter button.

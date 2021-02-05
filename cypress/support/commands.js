@@ -28,11 +28,23 @@ const healthcareVisits = new healthcareVisits_pageObject()
 const prescriptionDrugs = new prescriptionDrugs_pageObject()
 
 //This commmand types a zipcode in Census Page and gets quotes
+Cypress.Commands.add("getCensusPage", (zipCode) => {
+    cy.clearCookies()
+    cy.clearLocalStorage()
+    cy.visit(Cypress.env('url'), {onBeforeLoad: (win) => {win.sessionStorage.clear()}})
+})
+
+//This commmand types a zipcode in Census Page and gets quotes
 Cypress.Commands.add("getQuotePage", (zipCode) => {
-    cy.clearCookies() 
-    census.getPage()
+    cy.getCensusPage()
     census.setZipCodeTxt(zipCode)
     census.clickSeeMedicarePlansBtn()
+})
+/////////////
+//This command gets to Detail Plan page for a specific plan
+Cypress.Commands.add("getDetailPlanPage", (zipCode, plan) => {
+    cy.getQuotePage(zipCode)
+    quote.clickYourCurrentPlanBtn()
 })
 
 //This command gets to Your Current Plan page

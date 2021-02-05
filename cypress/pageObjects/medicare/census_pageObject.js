@@ -7,9 +7,11 @@ export default class census_pageObject{
     seeMedicarePlansBtn = 'button.sc-1fn8n0v-0'
 
     //This method loads the initial Census page.
-    getPage(){
-        cy.visit(Cypress.env('url'), {onBeforeLoad: (win) => {win.sessionStorage.clear()}})
-    }
+    //getPage(){
+      //  cy.clearCookies()
+       // cy.clearLocalStorage()
+       // cy.visit(Cypress.env('url'), {onBeforeLoad: (win) => {win.sessionStorage.clear()}})
+    //}
 
     //This method gets the Census page title.
     getPageTitleLbl(){
