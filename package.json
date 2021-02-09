@@ -6,11 +6,11 @@
   "scripts": {
     "cyHeaded": "node_modules/.bin/cypress open",
     "cyHeadless": "node_modules/.bin/cypress run",
-    "cyMedicare":"node_modules/.bin/cypress run --spec cypress/integration/medicare/* --headless --browser chrome --record --key 0be616fd-ee0a-4dd9-9118-87d1049ed593"
+    "cyMedicare": "node_modules/.bin/cypress run --spec cypress/integration/medicare/* --headless --browser chrome --record --key 0be616fd-ee0a-4dd9-9118-87d1049ed593"
   },
   "author": "Johan Soto",
   "license": "N/A",
   "devDependencies": {
-    "cypress": "^6.2.1"
+    "cypress": "^6.4.0"
   }
 }
