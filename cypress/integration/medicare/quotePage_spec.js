@@ -1,5 +1,5 @@
 import quote_pageObject from '../../pageObjects/medicare/quote_pageObject'
-import updateYourLocation_pageObject from '../../pageObjects/medicare/updateYourLocation_pageObject'
+import updateYourLocation_pageObject from '../../pageObjects/medicare/zipCodeModal_pageObject'
 import yourCurrentPlan_pageObject from '../../pageObjects/medicare/yourCurrentPlan_pageObject'
 import filterPlans_pageObject from '../../pageObjects/medicare/filterPlans_pageObject'
 import help_pageObject from '../../pageObjects/medicare/help_pageObject'
@@ -32,13 +32,8 @@ describe('Quote Page Suite',() => {
         filterPlans.clickApplyFilterBtn()
     })
 
-    it('Validate Update your location', () => {
-        quote.clickUpdateYourLocationBtn()
-        updateYourLocation.getUpdateYourLocationSubtitleLbl().should('have.text','Update your location')
-        updateYourLocation.setEditZipCodeTxt('35215')
-        updateYourLocation.clickUpdateMyLocationBtn()
-        quote.getUpdateYourLocationBtn().should('have.text', '35215')
-        quote.getTopLbl().contains('Medicare Advantage Plans')
+    it('Validate Zip Code Modal is present', () => {
+        quote.getZipCodeModalBtn().should('have.text','42223')
     })
     
     it('Validate Your Current Plan', () => {

@@ -1,4 +1,3 @@
-/// <reference types="Cypress" />
 export default class census_pageObject{
 
     heroTitleLbl = '.tz6gdb-0'

@@ -1,10 +1,9 @@
-/// <reference types="Cypress" />
-
 export default class quote_pageObject{
 
     topTitleLbl = '.sc-1xunf9a-0.jzUshS'
     filterPlansBtn ='.sc-1sioptb-6.gjipgy'
-    updateYourLocationBtn = '.sc-191voon-4.ctPuww'
+    //updateYourLocationBtn = '.sc-191voon-4.ctPuww'''
+    zipCodeModalBtn = 'div.sc-191voon-4.ctPuww>a'
     yourCurrentPlanBtn = '.sc-191voon-4.ctPuww'
     viewAvailablePlansLnk = '.sc-191voon-14.fpMnoP'
     hidenArrowBtn ='.sc-191voon-17.sc-191voon-19.lieBHb'
@@ -32,13 +31,14 @@ export default class quote_pageObject{
     }
 
     //This method gets the update your location element.
-    getUpdateYourLocationBtn(){
-        return cy.get(this.updateYourLocationBtn).eq(0)
+    getZipCodeModalBtn(){
+        //return cy.get(this.updateYourLocationBtn).eq(0)
+        return cy.get(this.zipCodeModalBtn).eq(0)
     }
     
     //This method clicks on update your location button.
-    clickUpdateYourLocationBtn(){
-        this.getUpdateYourLocationBtn().click()
+    clickZipCodeModalBtn(){
+        this.getZipCodeModalBtn().click()
     }
 
     //This methos clicks on current plan button.
