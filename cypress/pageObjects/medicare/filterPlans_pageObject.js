@@ -3,7 +3,8 @@
 export default class filterPlans_pageObject{
 
     filterPlansSubtitleLbl = '.sc-1sioptb-7.dleLcH'
-    companyNamesCkb= '.sc-1sioptb-20.jPjwKG'
+    //companyNamesCkb= '.sc-1sioptb-20.jPjwKG'
+    companyNamesCkb = '.sc-1sioptb-20.hPCOJn'
     applyFiltersBtn = '[class *= sc-1sioptb-10]'
     closeBtn = '.sc-1sioptb-18.hTUBWe'
 

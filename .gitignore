@@ -6,3 +6,7 @@ cypress/screenshots
 
 # Generic files
 .DS_Store
+
+# copy files
+*[Cc]opy*
+*[Tt]mp*

@@ -28,6 +28,7 @@ describe('Global disclaimers Suite',() => {
     it('Validate disclaimers in Quote page', function () {
         this.disclaimerTD.forEach(carrier => {
             cy.log(carrier.carrier)
+            cy.log(carrier.brand)
             var states = carrier.state
             states.forEach((state) =>{
                 cy.getQuotePage(state.zipCode)
@@ -42,6 +43,7 @@ describe('Global disclaimers Suite',() => {
     it('Validate disclaimers in Quote page using filters', function(){
         this.disclaimerTD.forEach(carrier => {
             cy.log(carrier.carrier)
+            cy.log(carrier.brand)
             var states = carrier.state
             states.forEach((state) =>{
                 cy.getQuotePage(state.zipCode)
@@ -59,6 +61,7 @@ describe('Global disclaimers Suite',() => {
     it('Validate disclaimers in Plan Details page', function(){
         this.disclaimerTD.forEach(carrier => {
             cy.log(carrier.carrier)
+            cy.log(carrier.brand)
             var states = carrier.state
             states.forEach((state) =>{
                 cy.getQuotePage(state.zipCode)
@@ -66,12 +69,16 @@ describe('Global disclaimers Suite',() => {
                 filterPlans.clickCompanyCkb(carrier.carrier)
                 filterPlans.clickApplyFilterBtn()
                 planUnit.getSeePlanDetailsBtn().each((elem, i, list)=>{
-                    planUnit.getSeePlanDetailsBtn().eq(i).click().wait(2000)
-                    disclaimer.getDisclaimerCtn().should((elem) => {
-                        expect(elem.text().replace(/\u00a0/g, ' ')).to.contains(state.disclaimer)
-                        expect(elem.text()).to.contains(Cypress.env('generalDisclaimer'))
+                    planUnit.getCarrierLogoImg().eq(i).invoke('attr','src').then((imgSrc) => {
+                        if(imgSrc.includes(carrier.key)){
+                            planUnit.getSeePlanDetailsBtn().eq(i).click().wait(2000)
+                            disclaimer.getDisclaimerCtn().should((elem) => {
+                                expect(elem.text().replace(/\u00a0/g, ' ')).to.contains(state.disclaimer)
+                                expect(elem.text()).to.contains(Cypress.env('generalDisclaimer'))
+                            })
+                            planDetails.clickBackBtn()
+                        }
                     })
-                    planDetails.clickBackBtn()
                 })  
             })
         })    
