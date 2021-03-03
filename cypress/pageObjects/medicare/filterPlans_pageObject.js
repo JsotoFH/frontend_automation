@@ -21,7 +21,7 @@ export default class filterPlans_pageObject{
 
     //This method clicks on Apply Filter button.
     clickApplyFilterBtn(){
-        cy.get(this.applyFiltersBtn).click().wait(2000)
+        cy.get(this.applyFiltersBtn).click()
     }
 
     //This method clicks on close button.
