@@ -25,8 +25,8 @@ describe('Global disclaimers Suite',() => {
                 filterPlans.clickCompanyCkb(carrier.carrier)
                 filterPlans.clickApplyFilterBtn()
                 disclaimer.getDisclaimerCtn().should((elem) => {
-                    expect(elem.text()).to.contains(Cypress.env('generalDisclaimer'))
                     expect(elem.text().replace(/\u00a0/g, ' ')).to.contains(state.disclaimer)
+                    expect(elem.text()).to.contains(Cypress.env('generalDisclaimer'))
                 }) 
             })
         })    
