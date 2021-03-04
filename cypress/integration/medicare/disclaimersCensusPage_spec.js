@@ -4,12 +4,6 @@ const disclaimer = new globalDisclaimers_pageObject()
 
 describe('Global disclaimers Suite',() => {
 
-    beforeEach(function () {
-        cy.fixture('medicare/disclaimers_testData').then((disclaimerTD) => {
-            this.disclaimerTD = disclaimerTD    
-        })
-    })
-
     it('Validate general disclaimer in Census page', function(){
         cy.getCensusPage()
         disclaimer.getDisclaimerCtn().should((elem) => {
