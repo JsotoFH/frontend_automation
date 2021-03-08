@@ -1,8 +1,8 @@
-import globalDisclaimers_pageObject from '../../pageObjects/medicare/globalDisclaimers_pageObject'
+import globalDisclaimers_pageObject from '../../../pageObjects/medicare/globalDisclaimers_pageObject'
 
 const disclaimer = new globalDisclaimers_pageObject()
 
-describe('Global disclaimers Suite',() => {
+describe('Disclaimers in Quote page Suite',() => {
 
     beforeEach(function () {
         cy.fixture('medicare/disclaimers_testData1').then((disclaimerTD1) => {
