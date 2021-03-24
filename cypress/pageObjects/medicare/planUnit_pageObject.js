@@ -6,6 +6,7 @@ export default class planUnit_pageObject{
     enrollBtn = 'button.sc-9fnp2k-0.erhkA'
     estimatedAnnualCostsLbl = 'p.awbtr0-7.feHAjv>a.sc-855xg4-0.hBKrpt'
     estimatedAnnualCostsLnk = 'div.awbtr0-6.fYOtFM>p>a'
+    estimatedCostlink = 'div.awbtr0-8.WxQdo>p>a'
     howMuchYouCouldSpendLbl = 'p.awbtr0-10.cgNUKG'
     enterYourInfoBtn = 'button.awbtr0-11.ktfKDE'
   
@@ -33,7 +34,6 @@ export default class planUnit_pageObject{
     rxDeductibleLnk = 'div.sc-jTzLTM.sc-1f7autd-23.ifHzmk.col-lg-5>section>div>a'
     rxCoveredLnk = 'div.sc-jTzLTM.sc-1f7autd-23.ifHzmk.col-lg-5>section>div>a'
     seeCoveredDrugsLnk = 'a.sc-1f7autd-30.hiRXGR'
-
 
     featuresLbl = 'div.sc-fjdhpX.sc-1f7autd-52.fqNoFt.collapse>div.sc-1f7autd-39.sc-1f7autd-44.EBjjL'
     rxImg = 'div.sc-fjdhpX.sc-1f7autd-52.fqNoFt.collapse>div>svg'
@@ -72,6 +72,11 @@ export default class planUnit_pageObject{
         return cy.get(this.estimatedAnnualCostsLbl)
     }
 
+    //This method gets the EAC link 
+    getEstimatedAnnualCostsLnk(){
+        return cy.get(this.estimatedAnnualCostsLnk)
+    }
+
     //This method gets Want to see how much you could spend in a year?
     getHowMuchYouCouldSpendLbl(){
         return cy.get(this.howMuchYouCouldSpendLbl)
@@ -82,9 +87,9 @@ export default class planUnit_pageObject{
         return cy.get(this.enterYourInfoBtn)
     }
 
-    //This method gets the resulting EAC link 
-    getEstimatedAnnualCostsLnk(){
-        return cy.get(this.estimatedAnnualCostsLnk)
+    //This method gets the resulting EAC link
+    getEstimatedCostsLnk(){
+        return cy.get(this.estimatedCostlink)
     }
 
     //This method gets the plan name

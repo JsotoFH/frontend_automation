@@ -39,8 +39,6 @@ describe('Plan Unit Suite', () => {
         planUnit.getPrimaryCareSpecialistLbl().eq(0).should('have.text', 'primary care / specialist')
         planUnit.getInNetworkLbl().eq(1).should('have.text', 'in-network')
 
-
-
         planUnit.getRxBenefitsImg().eq(1).should('exist')
         planUnit.getRxBenefitsLbl().eq(1).should('have.text', 'RX Benefits')
         planUnit.getUnavailableLbl().eq(0).should('have.text', 'This plan does not include RX benefits.')
@@ -77,7 +75,7 @@ describe('Plan Unit Suite', () => {
         planUnit.getRxCoveredLnk().eq(1).click()
     })
 
-    it('Validate that EAC page is loaded', () => {
+    it.only('Validate that EAC page is loaded', () => {
         planUnit.getEnterYourInfoBtn().eq(1).click().wait(2000)
         globalInfoBar.clickSkipBtn()
         globalInfoBar.getSubtitleLbl().should('have.text', 'Healthcare Visits')
@@ -114,13 +112,12 @@ describe('Plan Unit Suite', () => {
         pharmacy.clickMajorChainRdb('Walgreens')
         globalInfoBar.clickImFinishedBtn()
 
-        planUnit.getEstimatedAnnualCostsLnk().eq(0).click()
-        eAC.getTitleLbl().should('have.text', 'Estimated Annual Costs')
-        eAC.getPremiumLbl().should('have.text', '12 Months of Premium')
-        eAC.getMedicalLbl().should('have.text', 'Medical')
-        eAC.getRXLbl().should('have.text', 'Rx')
-        eAC.getEACLbl().contains('Estimated Annual Total')
+        planUnit.getEstimatedCostsLnk().eq(0).click()
+        eAC.getTitleLbl().eq(0).should('have.text', 'Estimated Annual Costs')
+        eAC.getPremiumLbl().eq(0).should('have.text', '12 Months of Premium')
+        eAC.getMedicalLbl().eq(0).should('have.text', 'Medical')
+        eAC.getRXLbl().eq(1).should('have.text', 'Rx')
+        eAC.getEACLbl().eq(2).contains('Estimated Annual Total')
         eAC.getCloseBtn().click()
-
     })
 })
