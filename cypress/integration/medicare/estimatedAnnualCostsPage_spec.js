@@ -75,7 +75,7 @@ describe('Plan Unit Suite', () => {
         planUnit.getRxCoveredLnk().eq(1).click()
     })
 
-    it.only('Validate that EAC page is loaded', () => {
+    it('Validate that EAC page is loaded', () => {
         planUnit.getEnterYourInfoBtn().eq(1).click().wait(2000)
         globalInfoBar.clickSkipBtn()
         globalInfoBar.getSubtitleLbl().should('have.text', 'Healthcare Visits')
